@@ -1,53 +1,73 @@
-import { Socials } from "@/constants";
-import Image from "next/image";
-import React from "react";
+"use client";
+
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
+  faHome,
+  faUser,
+  faEnvelope,
+  faProjectDiagram,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
-  return (
-    <div className="w-full h-[65px] fixed top-0 shadow-lg  shadow-[#2a0e61]/50 bg-[#03001417 backdrop-blur-md z-50 px-10]  ">
-      <div className="w-full h-full flex flex-row items-center justify-between m-auto px-[10px]">
-        <a
-          href="#about-me"
-          className="h-auto w-auto flex flex-row items-center"
-        >
-          <Image
-            src="/NavLogo.png"
-            alt="logo"
-            width={70}
-            height={70}
-            className="cursor-pointer hover:animate-spin"
-          />
-          <span className="font-bold ml-[10px] hidden md:block text-gray-300">
-            EZ4 Dev
-          </span>
-        </a>
+  const [activeNav, setActiveNav] = useState("#about-me");
 
-        <div className="w-[500px] h-full flex flex-row items-center justify-between md:mr-20">
-          <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200">
-            <a href="#about-me" className="cursor-pointer">
-              About Me
-            </a>
-            <a href="#skills" className="cursor-pointer">
-              Sklls
-            </a>
-            <a href="#projects" className="cursor-pointer">
-              Projects
-            </a>
-          </div>
-        </div>
-        <div className="flex flex-row gap-5">
-          {Socials.map((social) => (
-            <Image
-              src={social.src}
-              alt={social.name}
-              key={social.name}
-              width={24}
-              height={24}
+  return (
+    <nav>
+      <div className="nav__name">
+        <span>Hi, my name is</span>
+        <span>AHMAD AFRIZA</span>
+      </div>
+      <div className="nav__container">
+        <div className="nav__menu">
+          <a href="#about-me" onClick={() => setActiveNav("#about-me")}>
+            <FontAwesomeIcon
+              icon={activeNav === "#about-me" ? faHome : faHome}
+              className={
+                activeNav === "#about-me"
+                  ? "active__nav nav__icon"
+                  : "nav__icon"
+              }
             />
-          ))}
+            <span className="nav__link">Home</span>
+          </a>
+          <a href="#skills" onClick={() => setActiveNav("#skills")}>
+            <FontAwesomeIcon
+              icon={activeNav === "#skills" ? faUser : faUser}
+              className={
+                activeNav === "#skills" ? "active__nav nav__icon" : "nav__icon"
+              }
+            />
+            <span className="nav__link">skills</span>
+          </a>
+          <a href="#projects" onClick={() => setActiveNav("#projects")}>
+            <FontAwesomeIcon
+              icon={
+                activeNav === "#projects" ? faProjectDiagram : faProjectDiagram
+              }
+              className={
+                activeNav === "#projects"
+                  ? "active__nav nav__icon"
+                  : "nav__icon"
+              }
+            />
+            <span className="nav__link">projects</span>
+          </a>
+        </div>
+        <div className="nav__contact">
+          <a href="#contact" onClick={() => setActiveNav("#contact")}>
+            <FontAwesomeIcon
+              icon={activeNav === "#contact" ? faEnvelope : faEnvelope}
+              className={
+                activeNav === "#contact" ? "active__nav nav__icon" : "nav__icon"
+              }
+            />
+            <span className="nav__link">Contact</span>
+          </a>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

@@ -1,0 +1,130 @@
+.nav__container,
+.nav__name,
+a,
+Link {
+  color: var(--text-color);
+  font-weight: 900;
+}
+
+.nav__name {
+  position: fixed;
+  left: 1.5rem;
+  top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  line-height: 1rem;
+  z-index: 10;
+  color: white;
+}
+
+.nav__menu {
+  position: fixed;
+  right: 1.5rem;
+  top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  z-index: 20;
+  color: white;
+}
+
+.nav__contact {
+  position: fixed;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  z-index: 10;
+}
+
+.nav__icon {
+  display: none;
+}
+
+/* breakpoints */
+@media screen and (max-width: 992px) {
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 576px) {
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 20;
+  }
+  .nav__container {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 1rem;
+    width: max-content;
+    justify-content: center;
+    align-items: center;
+    z-index: 40;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.274);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .nav__container a {
+    color: var(--text-color);
+    font-weight: 900;
+    font-size: 1.5rem;
+    padding: 0.5rem; /* Atur padding agar tombol lebih terlihat dan mudah diakses */
+    text-align: center; /* Pusatkan teks di dalam tombol */
+    width: 100%; /* Lebar 100% agar tombol memenuhi container */
+    border-radius: 10px; /* Atur sudut agar tombol terlihat lebih rapi */
+  }
+
+  .nav__container Link {
+    color: var(--text-color);
+    font-weight: 900;
+    font-size: 2rem;
+  }
+
+  .active__nav {
+    background-color: black;
+    border-radius: 50%;
+    padding: 0.4rem;
+    color: var(--primary-color);
+    transition: all 0.2s;
+  }
+  .nav__icon {
+    display: block;
+  }
+  .nav__link {
+    display: none;
+    cursor: pointer;
+  }
+  .nav__name {
+    position: absolute;
+    line-height: 1.3rem;
+    color: var(--text-color);
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: white;
+  }
+  .nav__menu {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    font-size: 1.5rem;
+  }
+  .nav__contact {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    color: white;
+  }
+}
+
+@media screen and (max-width: 350px) {
+}

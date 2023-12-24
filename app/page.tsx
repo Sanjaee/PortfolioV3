@@ -1,5 +1,4 @@
 import Encryption from "@/components/main/Encryption";
-
 import Hero from "@/components/main/Hero";
 import Projects from "@/components/main/Projects";
 import Skils from "@/components/main/Skils";
